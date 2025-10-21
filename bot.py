@@ -1,13 +1,12 @@
 import logging
+import os
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 from openai import OpenAI
 
-# 🔑 OpenAI API kalitingizni shu yerga yozing
-OPENAI_API_KEY = "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"
-
-# 🔑 Telegram bot tokeningizni shu yerga yozing
-TELEGRAM_TOKEN = "8293257222:AAFILpvhe91JsHyVJxYbVDcJ7RtlYNyjaFc"
+# 🔒 Kalitlarni atrof-muhit o'zgaruvchisidan olish
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 
 # OpenAI mijozini ishga tushirish
 client = OpenAI(api_key=OPENAI_API_KEY)
